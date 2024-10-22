@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  hlds:
+    container_name: counter-strike-server
+    image: febley/counter-strike_server:latest
+    environment:
+      - PORT=27015
+      - MAP=de_dust2
+      - MAXPLAYERS=16
+      - SV_LAN=0
+    ports:
+      - 27015:27015/udp
+      - 27015:27015
+    volumes:
+      - server.cfg:/hlds/cstrike/server.cfg
